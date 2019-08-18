@@ -30,10 +30,10 @@ class CoffeeTypeTableViewController: UITableViewController {
     return data.count
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let coffee = data[indexPath.row]
-    order.coffee = coffee
-  }
+//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    let coffee = data[indexPath.row]
+//    order.coffee = coffee
+//  }
   
   //создание ячейки
   
@@ -52,7 +52,8 @@ class CoffeeTypeTableViewController: UITableViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == sizeViewControllerSegue {
-      if tableView.indexPathForSelectedRow != nil {
+      if let indexPath = tableView.indexPathForSelectedRow {
+        order.coffee = data[indexPath.row]
         let destinationVC = segue.destination as! CoffeeSizeViewController
         destinationVC.order = order
       }
