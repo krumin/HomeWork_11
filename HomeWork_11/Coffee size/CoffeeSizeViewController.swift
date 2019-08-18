@@ -22,9 +22,9 @@ class CoffeeSizeViewController: UIViewController {
     
     didSelectSegmentControl()
     
-    if let order = order {
-      imageView.image = order.coffee?.image
-      title = order.coffee?.title
+    if let coffee = order?.coffee {
+      imageView.image = coffee.image
+      title = coffee.title
     }
   }
   
